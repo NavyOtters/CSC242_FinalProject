@@ -1,3 +1,15 @@
+/* ---------------------------------------------------------------------------
+** I attest that this following code represents my own work and is subject to
+** the plagiarism policy found in the course syllabus.
+** 
+** Class: 	CSC 242
+** Assignment: 5 Comprehensive Program Challenge
+** File: 	CaeserCipher.cpp
+** Description: The purpose of this program is to encrypt or decrypt text files using a monoalphabetic substitution cipher based on a user-provided keyword. The program builds a cipher alphabet by taking the unique letters of the keyword followed by the remaining letters of the alphabet in reverse order. It then processes an input file character by character, applying the cipher transformation while preserving case and non-alphabetic characters.
+**
+** Author: 	Cody Currens, Armando Diaz, and Zhihao Jiang
+** Date: 	6/16/2026
+** -------------------------------------------------------------------------*/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -13,7 +25,7 @@ using namespace std;
 //   Result: FEATHRZYMXWVUSQPONMLIKJGDCB
 //
 // Plain:  ABCDEFGHIJKLMNOPQRSTUVWXYZ
-// Cipher: FEATHRZYMXWVUSQPONMLIKJGDCB  <- wait, let me redo with correct reverse
+// Cipher: FEATHRZYMXWVUSQPONMLIKJGDCB  
 // -------------------------------------------------------
 string buildCipherAlphabet(const string& keyword)
 {

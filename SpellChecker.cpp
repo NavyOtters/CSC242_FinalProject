@@ -1,3 +1,15 @@
+/* ---------------------------------------------------------------------------
+** I attest that this following code represents my own work and is subject to
+** the plagiarism policy found in the course syllabus.
+** 
+** Class: 	CSC 242
+** Assignment: 5 Comprehensive Program Challenge
+** File: 	SpellChecker.cpp
+** Description: The purpose of this program is to read a dictionary file and a user-specified text file, then check each word in the text file against the dictionary. It will report any misspelled or unrecognized words, ignoring case and punctuation. The program uses a vector to store the dictionary words and binary search for efficient lookups.
+**
+** Author: 	Cody Currens, Armando Diaz, and Zhihao Jiang
+** Date: 	6/13/2026
+** -------------------------------------------------------------------------*/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -104,7 +116,7 @@ int main()
     check_file.close();
 
     // -------------------------------------------------------
-    // Summary report
+    // Summary report of all misspelled words found in the file.
     // -------------------------------------------------------
     cout << "-----------------------------------" << endl;
     if (misspelledCount == 0)
