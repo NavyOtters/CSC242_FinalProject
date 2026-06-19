@@ -1,0 +1,119 @@
+1.	buildCipherAlphabet(const string& keyword) – This function adds the unique letters of keyword and converts to uppercase, then appends to the remaining unused alphabet letters.  We also need to reverse the order.
+
+function buildCipherAlphabet(keyword)
+    key = ""
+
+    // Add unique uppercase letters from keyword
+    for each char in keyword
+        upper = toupper(char)
+        if upper is letter and not in key
+            key += upper
+
+    // Add remaining letters in reverse (Z to A)
+    for ch = 'Z' downto 'A'
+        if ch not in key
+            key += ch
+
+    return key
+
+
+2.	Print cipher table- Shows user the cipher table mapping
+
+function printCipherTable(cipher)
+    print "Plain:  ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    print "Cipher: " + cipher
+
+3.	encryptChar(char ch, const string& cipher) – Encrypt single characters using the cipher
+
+function encryptChar(ch, cipher)
+    if not isalpha(ch)
+        return ch
+
+    isLower = islower(ch)
+    upper = toupper(ch)
+    encoded = cipher[upper - 'A']
+
+    if isLower
+        return tolower(encoded)
+    else
+        return encoded
+
+
+4.	decryptChar(ch, cipher) – Decrypt single characters in the cipher and map back to plain letters.
+
+function decryptChar(ch, cipher)
+    if not isalpha(ch)
+        return ch
+
+    isLower = islower(ch)
+    upper = toupper(ch)
+    pos = find position of upper in cipher
+    decoded = 'A' + pos
+
+    if isLower
+        return tolower(decoded)
+    else
+        return decoded
+
+5.	processFile(inputFile, outputFile, cipher, decrypt) – Processes the input file and writes to output files 
+
+function processFile(inputFile, outputFile, cipher, decrypt)
+    open inputFile
+    open outputFile
+
+    while can read char from input
+        if decrypt
+            processed = decryptChar(char, cipher)
+        else
+            processed = encryptChar(char, cipher)
+        write processed to outputFile
+
+    close files
+
+6.	printUsage() – Instructions for user on how to run the program.
+
+function printUsage()
+    print "Usage:"
+    print "  crypt -e -kKEYWORD input.txt output.txt"
+    print "  crypt -d -kKEYWORD input.txt output.txt"
+    print example with FEATHER
+
+
+7.	main() – The main function handles parse command-line arguments, validates user inputs, and provides feedback if errors arise.
+
+main:
+    if argc < 5
+        print error
+        printUsage()
+        exit
+
+    // Parse mode
+    if argv[1] == "-e"
+        decrypt = false
+    else if argv[1] == "-d"
+        decrypt = true
+    else
+        print error
+        printUsage()
+        exit
+
+    // Parse keyword
+    if argv[2] does not start with "-k"
+        print error
+        printUsage()
+        exit
+    keyword = argv[2] without "-k"
+
+    inputFile = argv[3]
+    outputFile = argv[4]
+
+    cipher = buildCipherAlphabet(keyword)
+
+    print program header
+    print mode and keyword
+    printCipherTable(cipher)
+
+    processFile(inputFile, outputFile, cipher, decrypt)
+
+    print "Encryption/Decryption complete!"
+    print output filename
