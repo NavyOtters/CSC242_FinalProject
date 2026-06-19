@@ -1,4 +1,4 @@
-1.	buildCipherAlphabet(const string& keyword) – This function adds the unique letters of keyword and converts to uppercase, then appends to the remaining unused alphabet letters.  We also need to reverse the order.
+1.  	buildCipherAlphabet(const string& keyword) – This function adds the unique letters of keyword and converts to uppercase, then appends to the remaining unused alphabet letters.  We also need to reverse the order.
 
 function buildCipherAlphabet(keyword)
     key = ""
